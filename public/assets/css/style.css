@@ -1,0 +1,1089 @@
+
+/*FEEDS*/
+/* --- DYNAMIC BACKGROUNDS --- */
+.uni-feed-page {
+    background-image: url('../img/unifeed-background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.my-feed-page {
+    background-image: url('../img/myfeed-background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* --- NEO-BRUTALIST NAVIGATION --- */
+nav {
+    background: #fff;
+    padding: 20px;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0px #000;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;
+    padding: 8px 15px;
+    border: 3px solid transparent;
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+}
+
+/* NAV HIGHLIGHT LOGIC */
+/* Highlights the link if the URL matches the action */
+nav a[href*="uni_feed"], 
+nav a[href*="my_feed"],
+nav a[href*="freedom_wall"] {
+    position: relative;
+}
+
+/* Active State: When the page is active, it turns into a "Sticker" */
+.uni-feed-page nav a[href*="uni_feed"],
+.my-feed-page nav a[href*="my_feed"] {
+    background: #FF8C00; /* Action Orange */
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    border-radius: 10px;
+    transform: translateY(-2px);
+}
+
+/* --- COMPACT FILTER TOOLBAR --- */
+
+.filter-box {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(8px);
+    border: 4px solid #000 !important;
+    padding: 20px !important;
+    border-radius: 25px !important;
+    box-shadow: 8px 8px 0px #000 !important;
+    margin: 10px auto 30px auto !important; /* Tighter margins */
+    max-width: 95% !important; /* Wider to allow horizontal flow */
+    box-sizing: border-box;
+}
+
+/* Force the inputs into one tight row */
+.filter-box div[style*="display: flex"] {
+    flex-wrap: nowrap !important; 
+    gap: 10px !important;
+    margin-bottom: 15px !important;
+}
+
+.filter-box input {
+    padding: 10px !important; /* Smaller padding to save height */
+    font-size: 13px !important;
+}
+
+/* Compact Interest Stickers */
+.interest-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px !important; /* Tighten the gap */
+    margin-bottom: 15px !important;
+    justify-content: center;
+}
+
+.custom-checkbox {
+    padding: 4px 12px !important; /* Much smaller "Sticker" feel */
+    font-size: 11px !important;
+    border-radius: 15px !important;
+    box-shadow: 2px 2px 0px #000 !important;
+}
+
+/* --- STUDENT CARDS POSITIONING --- */
+
+/* This ensures the cards are clearly separated from the filter */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    clear: both; /* Prevents overlapping */
+}
+
+/* Ensure cards pop against the grass background */
+.student-card {
+    background: #fff !important;
+    border: 4px solid #000 !important;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.3) !important;
+    /* Keeps the cards bubbly and distinct */
+}
+
+/* Compact Action Buttons */
+.brutal-btn, .clear-btn {
+    padding: 8px 20px !important;
+    font-size: 12px !important;
+    border-radius: 10px !important;
+}
+
+/* --- STUDENT CARDS --- */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.student-card {
+    background: #fff !important;
+    border: 4px solid #000 !important;
+    border-radius: 25px !important;
+    box-shadow: 8px 8px 0px #000 !important;
+    padding: 20px !important;
+    width: 280px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: transform 0.2s ease;
+}
+
+.student-card:hover {
+    transform: rotate(-1deg) scale(1.02);
+}
+
+.student-card h3 {
+    background: #008080; /* CHMSU Teal */
+    color: white;
+    margin: -20px -20px 15px -20px;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 4px solid #000;
+    font-size: 1.2rem;
+}
+
+/* --- INTEREST TAGS --- */
+.interest-tag {
+    display: inline-block;
+    background: #ffecb3;
+    border: 2px solid #000;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin: 3px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* --- BUTTONS --- */
+.student-card button {
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    font-weight: 900;
+    background: #FF8C00;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.student-card button:active {
+    box-shadow: 0px 0px 0px #000;
+    transform: translate(4px, 4px);
+}
+
+/* Undo Wave Button */
+button[style*="background-color: #ffcccc"], 
+form[action*="unwave"] button {
+    background: #ff4d4d !important;
+    color: white !important;
+}
+
+/* --- 1. Fix the Main H1 Heading --- */
+/* Makes "University Feed" stand out against the background trees */
+h1 {
+    display: inline-block; /* Wraps the block to the text size */
+    background: #fff; /* Solid white background */
+    color: #000; /* Black text for high contrast */
+    padding: 10px 20px; /* Internal padding */
+    border: 4px solid #000; /* Thick Neo-Pop outline */
+    border-radius: 12px; /* Slight bubbly corners */
+    box-shadow: 6px 6px 0px #000; /* Signature hard shadow */
+    margin-left: 20px; /* Spacing from the edge */
+    text-transform: uppercase;
+}
+
+/* --- 2. Solidify the Navigation Bar --- */
+/* Stops the background from showing through the links */
+nav {
+    background: #fff !important; /* Solid white base is essential for readability */
+    padding: 20px !important;
+    border: 4px solid #000 !important;
+    border-radius: 20px !important; /* Matches your bubbly aesthetic */
+    box-shadow: 8px 8px 0px #000 !important;
+    margin-bottom: 40px !important;
+    display: flex;
+    justify-content: center; /* Centering the links for balance */
+    gap: 10px; /* Clean spacing between links */
+}
+
+/* Clean up nav links and remove separators '|' in logic (CSS can add spacing) */
+nav a {
+    text-decoration: none;
+    color: #000 !important;
+    font-weight: 800;
+    padding: 8px 15px;
+    border: 3px solid transparent; /* Prepare for active border */
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Remove default link hover underline */
+nav a:hover {
+    color: var(--action-orange) !important;
+    text-decoration: none !important;
+}
+
+/* --- 3. Bold Highlight for the Active Page --- */
+/* Makes the current page link (like "UNIVERSITY FEED") a clear button */
+.uni-feed-page nav a[href*="uni_feed"],
+.my-feed-page nav a[href*="my_feed"] {
+    background: #FF8C00 !important; /* Action Orange - vibrant highlight */
+    color: #000 !important; /* Black text on orange for maximum contrast */
+    border: 3px solid #000 !important;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px #000;
+    transform: translateY(-2px); /* Slight raised effect */
+}
+
+/* Specific logout styling to keep it distinct */
+nav a[href*="logout.php"] {
+    color: #dc3545 !important; /* Retaining red but integrating slightly */
+    font-weight: 900;
+    margin-left: auto; /* Push to the far right */
+}
+
+/* --- GLOBAL FONT OVERRIDE --- */
+body, button, input, select, textarea {
+    font-family: 'Arial Black', 'Arial Bold', sans-serif !important;
+    color: #000;
+    letter-spacing: -0.5px; /* Tighter look for that bubbly feel */
+}
+
+/* --- REFINED STICKER CHECKBOXES --- */
+.custom-checkbox {
+    background: #fff;
+    border: 3px solid #000 !important; /* Thicker borders */
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    box-shadow: 4px 4px 0px #000 !important; /* Harder shadow */
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.1s ease;
+}
+
+/* Selected "Active" Sticker */
+.custom-checkbox:has(input:checked) {
+    background: #FF8C00 !important; /* Action Orange */
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #000 !important;
+}
+
+/* --- NAV HIGHLIGHT FIX --- */
+nav a {
+    font-family: 'Arial Black', sans-serif !important;
+    font-size: 13px !important;
+    text-transform: uppercase;
+}
+
+/* --- STUDENT CARD TEXT --- */
+.student-card h3 {
+    font-family: 'Arial Black', sans-serif !important;
+    text-transform: lowercase; /* Matches your "jolina tamesis" screenshot */
+}
+
+.student-card p {
+    font-family: 'Arial', sans-serif; /* Keep body text readable */
+    font-weight: 700;
+}
+
+/*MESSAGES CODE*/
+/* --- MESSAGES HUB STYLING --- */
+
+/* 1. Background for the Matches Page */
+.messages-page-body {
+    background-image: url('../img/chat-background.png') !important; /* Using your chat background */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* 2. Nav Highlight for Messages */
+body[class*="messages"] nav a[href*="action=messages"] {
+    background: #FF8C00 !important;
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000;
+    border-radius: 10px;
+}
+
+/* 3. The Match Badges */
+.matches-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.match-card {
+    background: #fff !important;
+    border: 4px solid #000 !important;
+    border-radius: 25px !important;
+    box-shadow: 10px 10px 0px #000 !important;
+    width: 320px !important;
+    padding: 0 !important; /* Let the header handle the top padding */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+}
+
+/* Match Card Header */
+.match-card h3 {
+    background: #008080 !important; /* CHMSU Teal */
+    color: #fff !important;
+    margin: 0 !important;
+    padding: 15px !important;
+    border-bottom: 4px solid #000;
+    text-transform: lowercase; /* Matching your "jolina tamesis" style */
+    font-size: 1.3rem;
+}
+
+/* Content Area */
+.match-card p {
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    color: #333;
+}
+
+/* 4. The "Chat Now" Action Button */
+.match-card button {
+    width: 90%;
+    margin: 15px auto 20px auto;
+    background: #97f68d !important; /* Growth Green */
+    border: 3px solid #000 !important;
+    border-radius: 15px !important;
+    padding: 12px !important;
+    font-family: 'Arial Black', sans-serif !important;
+    font-size: 16px;
+    box-shadow: 5px 5px 0px #000 !important;
+    cursor: pointer;
+    display: block;
+    transition: all 0.1s;
+}
+
+.match-card button:hover {
+    background: #FF8C00 !important; /* Turns Orange on hover */
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000 !important;
+}
+
+.match-card button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000 !important;
+}
+
+
+
+/*PROFILE PAGE*/
+/* --- PROFILE SETTINGS STYLING --- */
+
+ /* --- PROFILE PAGE IDENTITY --- */
+
+/* 1. Personalized Background */
+.profile-page {
+    background-image: url('../img/standard-background.png'); /* Personalized for you */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* 2. Fix Nav Highlight for Profile */
+.profile-page nav a[href*="action=profile"] {
+    background: #FF8C00 !important; /* Action Orange */
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000;
+    border-radius: 10px;
+    transform: translateY(-2px);
+}
+
+/* 3. The ID Card Container */
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 80vh;
+}
+
+.profile-card {
+    background: #fff !important;
+    border: 5px solid #000 !important;
+    border-radius: 35px !important;
+    box-shadow: 15px 15px 0px #000 !important;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    animation: slideUp 0.4s ease-out;
+}
+
+/* 4. Header (Teal Section) */
+.profile-header {
+    background: #008080 !important; /* CHMSU Teal */
+    color: white;
+    padding: 30px;
+    border-bottom: 5px solid #000;
+    text-align: center;
+}
+
+.profile-name {
+    font-family: 'Arial Black', sans-serif;
+    text-transform: lowercase; /* Vibrant social aesthetic */
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: -1px;
+}
+
+.profile-subtext {
+    font-weight: 800;
+    opacity: 0.9;
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* 5. Profile Content & Stats */
+.profile-content {
+    padding: 30px;
+}
+
+.stat-capsule {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-weight: 900;
+    font-size: 13px;
+    box-shadow: 4px 4px 0px #000;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.profile-section h3 {
+    font-family: 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: 4px solid #000;
+    display: inline-block;
+}
+
+/* 6. Control Panel (Goal & Interests) */
+.settings-block {
+    background: #f9f9f9;
+    border: 3px solid #000;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 6px 6px 0px #000;
+    margin-bottom: 20px;
+}
+
+.settings-block h4 {
+    font-family: 'Arial Black', sans-serif;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.brutal-select {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid #000;
+    border-radius: 15px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 13px;
+    background: #fff;
+    box-shadow: 4px 4px 0px #000;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* 7. Interest Tags */
+.interest-sticker-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.interest-tag {
+    background: #ffecb3;
+    border: 3px solid #000;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-weight: 900;
+    font-size: 12px;
+    box-shadow: 3px 3px 0px #000;
+}
+
+/* Animation for the Profile Entry */
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* FREEDOM WALL */
+/* --- THE ULTIMATE FREEDOM WALL STYLES --- */
+
+/* 1. Page Setup & Background */
+.freedom-wall-page {
+    background-image: url('../img/plain-background.png') !important;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+/* 2. Navigation Highlight */
+.freedom-wall-page nav a[href*="action=freedom_wall"] {
+    background: #FF8C00 !important; /* Action Orange */
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000;
+    border-radius: 10px;
+}
+
+/* 3. Header & Rules */
+.wall-header {
+    margin: 40px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.rules-sticker {
+    background: #FF8C00;
+    border: 4px solid #000;
+    padding: 10px 20px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    box-shadow: 6px 6px 0px #000;
+    border-radius: 12px;
+}
+
+/* 4. Centered Post Creator */
+.post-creator-card {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    background: #fff;
+    border: 5px solid #000;
+    padding: 25px;
+    border-radius: 30px;
+    box-shadow: 12px 12px 0px #000;
+}
+
+.post-creator-card textarea {
+    width: 100%;
+    height: 100px;
+    border: 4px solid #000;
+    border-radius: 20px;
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 800;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* 5. The Freedom Wall Grid */
+.freedom-wall-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 45px; /* Increased gap to allow for rotation overlap */
+    padding: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 6. The Post-it Note Base Style */
+.post-it-note {
+    border: 4px solid #000;
+    padding: 25px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 0px #000;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: left;
+}
+
+/* 7. SLANTING & HAND-POSTED EFFECT (The Logic) */
+.post-it-note:nth-child(even) { transform: rotate(2deg); }
+.post-it-note:nth-child(odd) { transform: rotate(-3deg); }
+.post-it-note:nth-child(3n) { transform: rotate(1.5deg); }
+.post-it-note:nth-child(5n) { transform: rotate(-1deg); }
+
+/* 8. MULTI-COLOR LOGIC */
+.post-it-note:nth-child(4n+1) { background: #ffffa5 !important; } /* Yellow */
+.post-it-note:nth-child(4n+2) { background: #97f68d !important; } /* Green */
+.post-it-note:nth-child(4n+3) { background: #85e3ff !important; } /* Teal */
+.post-it-note:nth-child(4n+4) { background: #ffcc80 !important; } /* Orange */
+
+/* 9. Hover "Pop" Effect */
+.post-it-note:hover {
+    transform: rotate(0deg) scale(1.1) translateY(-15px); /* Straightens and jumps out */
+    box-shadow: 18px 18px 0px #000;
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* 10. Inner Content Styling */
+.post-it-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.student-tag {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 11px;
+    background: #000;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    text-transform: lowercase;
+}
+
+.post-it-content p {
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.post-it-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* 11. Reaction Buttons */
+.react-btn {
+    border: 3px solid #000;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #000;
+}
+
+.react-btn.up { background: #97f68d !important; }
+.react-btn.down { background: #ff7676 !important; }
+
+.post-time {
+    font-size: 10px;
+    font-weight: 900;
+    opacity: 0.4;
+}
+
+.icon-btn {
+    border: 3px solid #000;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 3px 3px 0px #000;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+
+/* --- ONBOARDING STYLING --- */
+
+.onboarding-page {
+    background: url('../img/standard-background.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.onboarding-container {
+    background: #fff;
+    border: 5px solid #000;
+    box-shadow: 15px 15px 0px #000;
+    padding: 40px;
+    max-width: 550px;
+    width: 90%;
+    border-radius: 40px; /* Matching your Profile Card radius */
+    animation: slideUp 0.4s ease-out;
+}
+
+.onboarding-title {
+    background: #008080; /* CHMSU Teal */
+    color: #fff;
+    padding: 15px;
+    border: 4px solid #000;
+    box-shadow: 5px 5px 0px #000;
+    text-align: center;
+    font-size: 22px;
+    text-transform: lowercase; /* Vibrant social vibe */
+    margin-top: 0;
+}
+
+.onboarding-intro {
+    font-weight: 800;
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.guidelines-scrollbox {
+    background: #f9f9f9;
+    border: 4px solid #000;
+    padding: 20px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: inset 4px 4px 0px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.guidelines-scrollbox ul {
+    padding-left: 20px;
+}
+
+.guidelines-scrollbox li {
+    margin-bottom: 15px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.onboarding-footer {
+    text-align: center;
+}
+
+.agree-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #FF8C00 !important; /* Action Orange */
+    color: #000 !important;
+    text-decoration: none;
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0px #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.1s;
+}
+
+.agree-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px #000;
+}
+
+
+/*nOTIFICATIONS*/
+/* Ensure the icon nav item looks like a Bento button */
+.nav-item {
+    padding: 8px !important;
+    border-radius: 10px;
+    transition: 0.2s;
+    border: 3px solid transparent;
+}
+
+/* The MAGIC for the highlight */
+.nav-active {
+    background: #FF8C00 !important; /* Action Orange */
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000;
+    transform: translateY(-2px);
+}
+
+.nav-item:hover {
+    background: #eee;
+    border: 3px solid #000;
+    transform: translateY(-2px);
+}
+
+/* CHAT PAGE*/ 
+ /* --- BASE RESET & PAGE --- */
+* { box-sizing: border-box; }
+
+.chat-page-bg {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/standard-background.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    font-family: 'Arial Black', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents double scrollbars */
+}
+
+/* --- NAVIGATION TWEAKS --- */
+nav {
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.chat-layout-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    max-width: 1600px;
+    /* Adjust height to leave a gap at the bottom */
+    height: 82vh; 
+    /* Center it and add margin-bottom to prevent it from touching the edge */
+    margin: 15px auto 30px auto; 
+    gap: 20px;
+    padding: 10px;
+    align-items: stretch;
+}
+
+/* --- SIDEBAR ADJUSTMENT --- */
+.sidebar-cell {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    background: #fff !important;
+    flex-shrink: 0;
+    /* Ensure the shadow doesn't get cut off at the bottom */
+    margin-bottom: 5px; 
+}
+
+.sidebar-header {
+    padding: 18px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.active-list {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.sidebar-item {
+    display: block;
+    padding: 20px;
+    border-bottom: 3px solid #000;
+    text-decoration: none;
+    color: #000;
+    transition: 0.1s;
+}
+
+.sidebar-item:hover { background: #f0f0f0; }
+.active-chat { background: #A3E635 !important; } /* CHMSU Green for current chat */
+
+.item-info strong { display: block; font-size: 16px; margin-bottom: 4px; }
+.item-info small { font-size: 11px; opacity: 0.7; font-family: 'Arial', sans-serif; font-weight: bold; }
+
+/* --- MAIN CHAT CONTAINER (RIGHT SIDE) --- */
+.bento-chat-container {
+    flex-grow: 1;         /* Forces the chat to take up ALL remaining horizontal space */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- CORE BENTO CELL --- */
+.bento-cell {
+    background: #fff;
+    border: 4px solid #000;
+    box-shadow: 10px 10px 0px #000; /* Heavier shadow for "grounding" */
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* --- HEADER CELL --- */
+.header-cell {
+    background: #008080 !important; /* CHMSU Teal */
+    color: white;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-info { display: flex; align-items: center; }
+
+.back-pill {
+    background: #fff;
+    color: #000;
+    padding: 8px 14px;
+    border: 3px solid #000;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 900;
+    margin-right: 20px;
+}
+
+.partner-name { font-size: 20px; margin: 0; text-transform: lowercase; }
+.substance-text { font-size: 12px; margin: 4px 0 0 0; opacity: 0.9; font-family: 'Arial', sans-serif; }
+
+.bento-report-btn {
+    background: #fff;
+    border: 3px solid #000;
+    font-size: 20px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000;
+}
+
+/* --- THREAD CELL (SCROLL AREA) --- */
+.thread-cell {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.98) !important;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Custom Scrollbar for the Thread */
+.thread-cell::-webkit-scrollbar { width: 10px; }
+.thread-cell::-webkit-scrollbar-thumb { background: #000; border-radius: 10px; }
+
+/* --- BUBBLES --- */
+.msg-wrapper { display: flex; width: 100%; margin-bottom: 8px; }
+.msg-wrapper.me { justify-content: flex-end; }
+.msg-wrapper.them { justify-content: flex-start; }
+
+.bento-bubble {
+    max-width: 65%;       /* Perfect balance for horizontal desktop view */
+    padding: 15px 20px;
+    border: 4px solid #000;
+}
+
+.me .bento-bubble {
+    background: #FF8C00; /* Action Orange */
+    border-radius: 24px 24px 0px 24px;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.them .bento-bubble {
+    background: #fff;
+    border-radius: 24px 24px 24px 0px;
+    box-shadow: -6px 6px 0px #000;
+}
+
+.bubble-sender { font-size: 11px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+.bubble-text { margin: 0; font-size: 15px; line-height: 1.5; font-family: 'Arial', sans-serif; font-weight: bold; }
+.bubble-time { font-size: 10px; opacity: 0.6; display: block; margin-top: 8px; text-align: right; }
+
+.input-cell { 
+    padding: 15px; 
+    background: #fff; 
+    flex-shrink: 0;
+    /* Match the shadow of the cells above */
+    box-shadow: 10px 10px 0px #000; 
+}
+.bento-input-group { display: flex; gap: 15px; }
+
+.bento-input-group textarea {
+    flex-grow: 1;
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 800;
+    resize: none;
+    height: 55px;
+    outline: none;
+    font-size: 14px;
+}
+
+.bento-send-btn {
+    background: #A3E635 !important; /* Success Green */
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 0 35px;
+    font-weight: 900;
+    font-size: 16px;
+    box-shadow: 6px 6px 0px #000;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.bento-send-btn:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0px #000; }
+
+/* --- RESPONSIVENESS (MOBILE FIX) --- */
+@media (max-width: 768px) {
+    .chat-layout-wrapper { flex-direction: column; height: auto; }
+    .sidebar-cell { width: 100%; height: 150px; }
+    .bento-bubble { max-width: 85%; }
+}
+
+/* Global Modal Overlay */
+.bento-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 9999; /* Ensure it stays above everything */
+    justify-content: center;
+    align-items: center;
+}
+
+.bento-modal-content {
+    width: 90%;
+    max-width: 450px;
+    background: #fff !important;
+    border: 4px solid #000;
+    box-shadow: 10px 10px 0px #000;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: bentoSpring 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bentoSpring {
+    from { transform: translateY(-20px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-header { padding: 15px; display: flex; justify-content: space-between; align-items: center; color: #fff; border-bottom: 4px solid #000; }
+.teal-header { background: #008080; }
+.orange-header { background: #FF8C00; }
+.modal-body { padding: 20px; }
+.bento-input { width: 100%; border: 3px solid #000; border-radius: 12px; padding: 10px; font-family: inherit; height: 100px; }
+
+.close-btn { background: #fff; border: 3px solid #000; font-weight: 900; cursor: pointer; padding: 4px 8px; border-radius: 6px; }
+.close-btn:hover { background: #ff4d4d; color: #fff; }
+
+.brutal-bg {
+    background: url('../img/standard-background.png') no-repeat center center fixed;
+    background-size: cover;
+}
