@@ -216,7 +216,6 @@ case 'confirm_2fa_setup':
         break;
 
     // --- MATCHING & WAVES ---
-        // --- MATCHING & WAVES ---
 case 'wave':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $receiverId = $_POST['receiver_id'];
@@ -229,7 +228,7 @@ case 'wave':
                 // Stay on current feed but trigger the "YOU MATCH!" animation
                 $redirect = "$return_to&match_overlay=true";
             } else {
-                // Standard redirect for a single wave[cite: 1]
+                // Standard redirect for a single wave
                 $redirect = "$return_to&status=waved";
             }
             
@@ -244,10 +243,51 @@ case 'wave':
             
             $matchController->unwave($current_user_id, $_POST['receiver_id']);
             
-            // Return to the source feed instead of hardcoded uni_feed[cite: 1]
+            // Return to the source feed instead of hardcoded uni_feed
             header("Location: index.php?action=$return_to");
             exit();
         }
+        break;
+
+    // --- INTERACTIVE NOTIFICATIONS ROUTING ENDPOINTS ---
+    case 'accept_wave':
+        $notifId = $_GET['id'] ?? null;
+        $actorId = $_GET['actor_id'] ?? null;
+        
+        if ($actorId) {
+            // 1. Fire the wave mapping back to create the match connection row
+            $result = $matchController->sendWave($current_user_id, $actorId);
+            
+            // 2. Archive the alert element instead of hard deleting it
+            if ($notifId) {
+                $notifController->updateStatus($notifId, $current_user_id, 'accepted');
+            }
+            
+            if ($result === "Matched") {
+                header("Location: index.php?action=notifications&match_overlay=true");
+                exit();
+            }
+        }
+        header("Location: index.php?action=notifications");
+        exit();
+        break;
+
+    case 'decline_wave':
+        $notifId = $_GET['id'] ?? null;
+        $actorId = $_GET['actor_id'] ?? null;
+        
+        if ($actorId) {
+            // 1. Remove the pending line from the waves mapping table
+            $matchController->unwave($actorId, $current_user_id);
+        }
+        
+        if ($notifId) {
+            // 2. Shift status column value to 'declined' archive category slot
+            $notifController->updateStatus($notifId, $current_user_id, 'declined');
+        }
+        
+        header("Location: index.php?action=notifications");
+        exit();
         break;
 
     // --- MESSAGING & CHAT ---
